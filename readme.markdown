@@ -83,7 +83,7 @@ remove them so that the underlying `.removeEventListener()` calls get fired.
 With [npm](http://npmjs.org) do:
 
 ```
-npm install eventual
+npm install ever
 ```
 
 This module is meant for use in browsers with a node-style module system.
