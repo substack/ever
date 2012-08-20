@@ -27,6 +27,26 @@ Ever.prototype.removeListener = function (type, listener, useCapture) {
     if (ix >= 0) xs.splice(ix, 1);
 };
 
+Ever.prototype.removeAllListeners = function (type) {
+    var self = this;
+    function removeAll (t) {
+        var xs = self.listeners(t);
+        for (var i = 0; i < xs.length; i++) {
+            self.removeListener(t, xs[i]);
+        }
+    }
+    
+    if (type) {
+        removeAll(type)
+    }
+    else if (self._events) {
+        for (var key in self._events) {
+            if (key) removeAll(key);
+        }
+    }
+    EventEmitter.prototype.removeAllListeners.apply(self, arguments);
+}
+
 var initSignatures = require('./init.json');
 
 Ever.prototype.emit = function (name, ev) {
