@@ -1,0 +1,27 @@
+{
+    "name" : "ever",
+    "version" : "0.0.0",
+    "description" : "dom events with a node-style EventEmitter api",
+    "main" : "index.js",
+    "directories" : {
+        "example" : "example"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "git://github.com/substack/ever.git"
+    },
+    "homepage" : "https://github.com/substack/ever",
+    "keywords" : [
+        "events",
+        "dom",
+        "browser",
+        "browserify",
+        "emitter"
+    ],
+    "author" : {
+        "name" : "James Halliday",
+        "email" : "mail@substack.net",
+        "url" : "http://substack.net"
+    },
+    "license" : "MIT"
+}
