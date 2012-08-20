@@ -1,3 +1,5 @@
+var EventEmitter = require('events').EventEmitter;
+
 module.exports = function (elem) {
     return new Ever(elem);
 };
@@ -6,8 +8,23 @@ function Ever (elem) {
     this.element = elem;
 }
 
+Ever.prototype = new EventEmitter;
+
 Ever.prototype.on = function (name, cb) {
+    if (!this._events) this._events = {};
+    if (!this._events[name]) this._events[name] = [];
+    this._events[name].push(cb);
     this.element.addEventListener(name, cb);
+};
+Ever.prototype.addListener = Ever.prototype.on;
+
+Ever.prototype.removeListener = function (type, listener, useCapture) {
+    if (!this._events) this._events = {};
+    this.element.removeEventListener(type, listener, useCapture);
+    
+    var xs = this.listeners(type);
+    var ix = xs.indexOf(listener);
+    if (ix >= 0) xs.splice(ix, 1);
 };
 
 var initSignatures = require('./init.json');
