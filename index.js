@@ -10,17 +10,17 @@ function Ever (elem) {
 
 Ever.prototype = new EventEmitter;
 
-Ever.prototype.on = function (name, cb) {
+Ever.prototype.on = function (name, cb, useCapture) {
     if (!this._events) this._events = {};
     if (!this._events[name]) this._events[name] = [];
     this._events[name].push(cb);
-    this.element.addEventListener(name, cb);
+    this.element.addEventListener(name, cb, useCapture || false);
 };
 Ever.prototype.addListener = Ever.prototype.on;
 
 Ever.prototype.removeListener = function (type, listener, useCapture) {
     if (!this._events) this._events = {};
-    this.element.removeEventListener(type, listener, useCapture);
+    this.element.removeEventListener(type, listener, useCapture || false);
     
     var xs = this.listeners(type);
     var ix = xs.indexOf(listener);
