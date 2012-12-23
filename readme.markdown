@@ -5,6 +5,8 @@ with a node-style
 [EventEmitter](http://nodejs.org/docs/latest/api/events.html#events_class_events_eventemitter)
 api
 
+[![browser support](http://ci.testling.com/substack/ever.png)](http://ci.testling.com/substack/ever)
+
 # example
 
 [view the demo](http://substack.net/projects/ever-example/)
