@@ -18,6 +18,19 @@
         "browserify",
         "emitter"
     ],
+    "devDependencies" : {
+        "tape" : "~0.1.5"
+    },
+    "testling" : {
+        "files" : "test/*.js",
+        "browsers" : [
+            "ie8", "ie9",
+            "chrome/10", "chrome/20",
+            "firefox/5", "firefox/15",
+            "safari/5.1",
+            "opera/12"
+        ]
+    },
     "author" : {
         "name" : "James Halliday",
         "email" : "mail@substack.net",
