@@ -12,7 +12,7 @@ test(function (t) {
     
     box.addEventListener('click', function (ev) {
         t.pass('caught click with addEventListener');
-    });
+    }, false);
     
     setInterval(function () {
         ever(box).emit('click');
