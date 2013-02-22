@@ -7,7 +7,7 @@
     "mousemove",
     "mouseout"
   ],
-  "KeyEvent" : [
+  "KeyBoardEvent" : [
     "keydown",
     "keyup",
     "keypress"
