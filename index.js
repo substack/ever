@@ -15,6 +15,8 @@ Ever.prototype.on = function (name, cb, useCapture) {
     if (!this._events[name]) this._events[name] = [];
     this._events[name].push(cb);
     this.element.addEventListener(name, cb, useCapture || false);
+
+    return this;
 };
 Ever.prototype.addListener = Ever.prototype.on;
 
@@ -25,6 +27,8 @@ Ever.prototype.removeListener = function (type, listener, useCapture) {
     var xs = this.listeners(type);
     var ix = xs.indexOf(listener);
     if (ix >= 0) xs.splice(ix, 1);
+
+    return this;
 };
 
 Ever.prototype.removeAllListeners = function (type) {
@@ -44,7 +48,7 @@ Ever.prototype.removeAllListeners = function (type) {
             if (key) removeAll(key);
         }
     }
-    EventEmitter.prototype.removeAllListeners.apply(self, arguments);
+    return EventEmitter.prototype.removeAllListeners.apply(self, arguments);
 }
 
 var initSignatures = require('./init.json');
