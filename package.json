@@ -1,6 +1,6 @@
 {
     "name" : "ever",
-    "version" : "0.0.2",
+    "version" : "0.0.3",
     "description" : "dom events with a node-style EventEmitter api",
     "main" : "index.js",
     "directories" : {
