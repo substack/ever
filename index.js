@@ -14,7 +14,7 @@ Ever.prototype.on = function (name, cb, useCapture) {
     if (!this._events) this._events = {};
     if (!this._events[name]) this._events[name] = [];
     this._events[name].push(cb);
-    this.element.addEventListener(name, cb, useCapture || false);
+    this.element.addEventListener(name, cb.bind(this), useCapture || false);
 
     return this;
 };
